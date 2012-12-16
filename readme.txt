@@ -27,7 +27,7 @@ The plugin is simple to install:
 4. Make any modifications to your theme, as required.
 5. Activate plugin.
 
-You can find full details of installing a plugin on the [plugin installation page](http://thesquaremedia.com/blog/).
+You can find full details of installing a plugin on the [plugin installation page](http://thesquaremedia.com/blog/plugins/multiple-ajax-calendar/).
 
 == Frequently Asked Questions ==
 
@@ -43,7 +43,7 @@ No, the calendar is simply an enhancement to the regular wordpress calendar widg
 
 == Documentation ==
 
-Full documentation can be found on the [Multiple Ajax Calendar](http://thesquaremedia.com/blog/category/plugins/) page.
+Full documentation can be found on the [Multiple Ajax Calendar](http://thesquaremedia.com/blog/plugins/multiple-ajax-calendar/) page.
 
 == Changelog ==
 

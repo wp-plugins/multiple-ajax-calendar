@@ -3,8 +3,8 @@
 Plugin Name: Multiple Ajax Calendar
 Plugin URI: http://thesquaremedia.com/blog/plugins/multiple-ajax-calendar/
 Description: The wordpress calendar widget enhanced to allow multiple instances of it in one page. 
-Version: 2.0
-Stable tag: 2.0
+Version: 2.1
+Stable tag: 2.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Author: Xavier Serrano
@@ -35,7 +35,7 @@ class MultipleAjaxCalendarWidget extends WP_Widget {
 			$replace=array("",""); 
 			$widget_id=$_GET['widget_id'];
 			$variable=str_replace($search,$replace,$_GET['widget_id']);
-			$jVariable='#'.$_GET['widget_id'];
+			$jVariable=$_GET['widget_id'];
 			$instance     = wp_parse_args( $settings, array( 'title' => __( 'AJAX Calendar', 'ajax-calendar' ) ) );
 			echo $this->getMultipleAjaxCalendar();
 			die();
@@ -56,7 +56,7 @@ class MultipleAjaxCalendarWidget extends WP_Widget {
 		global $variable,$jVariable,$widget_id;
 		$widget_id=$args['widget_id'];
 		$variable=str_replace($search,$replace,$args['widget_id']);
-		$jVariable='#'.$args['widget_id'];
+		$jVariable=$args['widget_id'];
 		$instance     = wp_parse_args( (array)$instance, array( 'title' => __( 'AJAX Calendar', 'ajax-calendar' ), 'category_id' => '' ) );
 		$title        = apply_filters( 'widget_title', $instance['title'] );
 		
@@ -78,7 +78,7 @@ function calendar_AJAX_<?php echo $variable; ?>(theURL,action,wID){
                         success : function(response) {
                             // The server has finished executing PHP and has returned something,
                             // so display it!
-                            jQuery("<?php echo $jVariable; ?> .wp-calendar").html(response);
+                            jQuery(".wp-calendar.<?php echo $jVariable; ?> ").replaceWith(response);
                         }
                     });
 				  }
@@ -97,13 +97,13 @@ function calendar_AJAX_<?php echo $variable; ?>(theURL,action,wID){
 		$text = $this->get_custom_tsm_calendar( true, false );
 
 		
-		$text = str_replace( 'id="wp-calendar"', 'class="wp-calendar"', $text );
+		$text = str_replace( 'id="wp-calendar"', 'class="wp-calendar '.$jVariable.'"', $text );
 		
 		$text = str_replace( '<td colspan="3" id="next"><a', '<td colspan="3" id="next"><a onclick="calendar_AJAX_'.$variable.'(jQuery(this).attr(\'href\'),true,\''.$widget_id.'\'); return false"', $text );
 		$text = str_replace( '<td colspan="3" id="prev"><a', '<td colspan="3" id="prev"><a onclick="calendar_AJAX_'.$variable.'(jQuery(this).attr(\'href\'),true,\''.$widget_id.'\'); return false"', $text );
 		$text.="<script type=\"text/javascript\">
 jQuery(document).ready(function(){
-	jQuery(\"$jVariable a.events-day,.day-events\").hover(
+	jQuery(\".$jVariable a.events-day,.day-events\").hover(
 	function(e){
 		jQuery(this).parent().find('.day-events').show();
 	}

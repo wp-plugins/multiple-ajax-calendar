@@ -3,8 +3,8 @@
 Plugin Name: Multiple Ajax Calendar
 Plugin URI: http://thesquaremedia.com/blog/plugins/multiple-ajax-calendar/
 Description: The wordpress calendar widget enhanced to allow multiple instances of it in one page. 
-Version: 2.1
-Stable tag: 2.1
+Version: 2.1.1
+Stable tag: 2.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Author: Xavier Serrano
@@ -20,13 +20,13 @@ class MultipleAjaxCalendarWidget extends WP_Widget {
 
 		$this->WP_Widget( 'multiple-ajax-calendar', __( 'Multiple Ajax Calendar', 'multiple-ajax-calendar' ), $widget_ops, $control_ops );
 
-		add_action( 'template_redirect', array( &$this, 'template_redirect' ) );
+		add_action( 'template_redirect', array( &$this, 'tsm_multiple_ajax_template_redirect' ) );
 		wp_enqueue_script('jquery');
 		wp_register_style( 'tsm_multiple_ajax_widget', plugins_url('style.css', __FILE__) );
         wp_enqueue_style( 'tsm_multiple_ajax_widget' );
 	}
 	
-	function template_redirect() {
+	function tsm_multiple_ajax_template_redirect() {
 		global $variable,$jVariable,$widget_id;
 		if ( is_date() && isset( $_GET['ajax'] ) && $_GET['ajax'] == 'true' ) {
 			$settings = $this->get_settings();

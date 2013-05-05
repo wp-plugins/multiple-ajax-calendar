@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: ajax, calendar, widget,multiple,instances,jquery
 Requires at least: 2.9
 Tested up to: 3.5
-Stable tag: 2.1
+Stable tag: 2.1.1
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -48,6 +48,9 @@ No, the calendar is simply an enhancement to the regular wordpress calendar widg
 Full documentation can be found on the [Multiple Ajax Calendar](http://thesquaremedia.com/blog/plugins/multiple-ajax-calendar/) page.
 
 == Changelog ==
+
+= 2.1.1   =
+* Fixed Bug where calendar conflicts with Ajax Calendar plugin..
 
 = 2.1   =
 * Fixed Bug where calendar wont work if widgets don't echo the <li> tags with ids.

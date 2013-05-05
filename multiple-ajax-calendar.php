@@ -3,8 +3,8 @@
 Plugin Name: Multiple Ajax Calendar
 Plugin URI: http://thesquaremedia.com/blog/plugins/multiple-ajax-calendar/
 Description: The wordpress calendar widget enhanced to allow multiple instances of it in one page. 
-Version: 2.1.1
-Stable tag: 2.1.1
+Version: 2.1.2
+Stable tag: 2.1.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Author: Xavier Serrano

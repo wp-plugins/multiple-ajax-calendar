@@ -3,8 +3,8 @@ Contributors: xavierserranoa
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F4C4QKNHHWGA6
 Tags: ajax, calendar, widget,multiple,instances,jquery
 Requires at least: 2.9
-Tested up to: 3.5
-Stable tag: 2.1.2
+Tested up to: 3.8.1
+Stable tag: 2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -16,7 +16,8 @@ Multiple AJAX Calendar is a plugin that will display an AJAX enabled WordPress c
 
 * Allows navigating through months without reloading the page.
 * Allows Multiple Instances of the calendar
-* Displays the posts of each day on a tooltip
+* Displays the posts of each day on a tooltip with their thumbnail
+* Add to posts and pages with a shortcode
 
 == Installation ==
 
@@ -48,6 +49,10 @@ No, the calendar is simply an enhancement to the regular wordpress calendar widg
 Full documentation can be found on the [Multiple Ajax Calendar](http://thesquaremedia.com/blog/plugins/multiple-ajax-calendar/) page.
 
 == Changelog ==
+
+= 2.2   =
+* Added the featured image thumbnail
+* Added shortcode to include calendar into posts and pages
 
 = 2.1.2   =
 * Links in hover tooltips display one on top of the other.

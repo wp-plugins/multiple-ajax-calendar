@@ -82,10 +82,14 @@ border-radius: 5px;
 color:#000 ;
 text-shadow: 1px 1px 1px #cccccc;
 filter: dropshadow(color=#cccccc, offx=1, offy=1);
-display:block;
+display:inline-block;
 }
 .wp-calendar .day-events a:hover{
 color: #999 ;
 text-shadow: 1px 1px 1px #cccccc;
 filter: dropshadow(color=#cccccc, offx=1, offy=1);
 }
+.wp-calendar .day-events img.attachment-thumbnail{float: left;
+margin:0px 5px;
+vertical-align: middle;}
+.wp-clear{ clear:both;}

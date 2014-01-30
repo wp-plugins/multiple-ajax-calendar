@@ -3,8 +3,8 @@
 Plugin Name: Multiple Ajax Calendar
 Plugin URI: http://thesquaremedia.com/blog/plugins/multiple-ajax-calendar/
 Description: The wordpress calendar widget enhanced to allow multiple instances of it in one page. 
-Version: 2.1.2
-Stable tag: 2.1.2
+Version: 2.2
+Stable tag: 2.2
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Author: Xavier Serrano
@@ -296,7 +296,7 @@ jQuery(document).ready(function(){
 						if (have_posts()) : 
 
 							while (have_posts()) : the_post();
-								$calendar_output .= "<a href=\"".get_permalink(get_the_ID()). "\"> ".get_the_title(get_the_ID())." - ".get_post_time('h:i A', true)."</a>";
+								$calendar_output .= "<a href=\"".get_permalink(get_the_ID()). "\"> ".get_the_post_thumbnail( get_the_ID(), 'thumbnail', $attr ).get_the_title(get_the_ID())." - ".get_post_time('h:i A', true)."</a>";
 							endwhile;
 						endif;
 						$calendar_output .= "</div>";
@@ -363,4 +363,39 @@ function register_multiple_ajax_calendar_widget() {
 }
 
 add_action( 'widgets_init', 'register_multiple_ajax_calendar_widget' );
+add_shortcode( 'multiple-ajax-calendar', 'my_mac_shortcode' );
+
+function my_mac_shortcode( $atts ) {
+global $wp_widget_factory;
+// Configure defaults and extract the attributes into variables
+extract( shortcode_atts( 
+	array( 
+		'title'  => 'Calendar'
+	), 
+	$atts 
+));
+
+$widget_name = wp_specialchars('MultipleAjaxCalendarWidget');
+    
+    if (!is_a($wp_widget_factory->widgets[$widget_name], 'WP_Widget')):
+        $wp_class = 'WP_Widget_'.ucwords(strtolower($class));
+        
+        if (!is_a($wp_widget_factory->widgets[$wp_class], 'WP_Widget')):
+            return '<p>'.sprintf(__("%s: Widget class not found. Make sure this widget exists and the class name is correct"),'<strong>'.$class.'</strong>').'</p>';
+        else:
+            $class = $wp_class;
+        endif;
+    endif;
+    
+    ob_start();
+    the_widget($widget_name, $instance, array('widget_id'=>'arbitrary-instance-'.$id,
+        'before_widget' => '<div id="%1$s" class="widget-container %2$s">',
+		'after_widget' => '</div>',
+		'before_title' => '<h1 class="widget-title">',
+		'after_title' => '</h1>',
+    ));
+    $output = ob_get_contents();
+    ob_end_clean();
+	return $output;
+}
 

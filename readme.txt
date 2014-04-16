@@ -3,8 +3,13 @@ Contributors: xavierserranoa
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=F4C4QKNHHWGA6
 Tags: ajax, calendar, widget,multiple,instances,jquery
 Requires at least: 2.9
+<<<<<<< .mine
+Tested up to: 3.9
+Stable tag: 2.1.2
+=======
 Tested up to: 3.8.1
 Stable tag: 2.2
+>>>>>>> .r894745
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
